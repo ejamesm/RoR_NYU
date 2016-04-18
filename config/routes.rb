@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'public/index'
+
+  get 'accounts/login'
+
+  get 'accounts/logout'
+
+  get 'users/index'
+
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/edit'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
   get 'pictures/index'
 
   # get 'features/index'
