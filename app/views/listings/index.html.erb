@@ -21,6 +21,7 @@
 						<td></td>
 						<td></td>
 						<td></td>
+						<td></td>
 					</tr>
 				</thead>
 				<tbody>
@@ -30,6 +31,7 @@
 		      		<td><%= listing.description %></td>
 		      		<td><%= listing.price %></td>
 		      		<td><%= link_to "Features", listing_features_path(listing) %></td>
+		      		<td><%= link_to "Pictures", listing_pictures_path(listing) %></td>
 							<td><%= link_to "Edit", edit_listing_path(listing)%></td>
 							<td><%= link_to "Delete", listing, method: :delete, data: {confirm: "Are you sure?"} %></td>
 		      	</tr>

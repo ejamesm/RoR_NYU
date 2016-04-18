@@ -1,0 +1,39 @@
+<%= form_for [@listing, @picture], :html => {:multipart => true, :class => "form-horizontal"} do |f| %>
+	<% if @picture.errors.any? %>
+  <div class="form-group">
+  	<div id="error_explanation">
+  		<h3>
+  			<%= pluralize(@picture.errors.count, "error") %>
+  			prohibited this picture from being saved.
+  		</h3>
+  	</div>
+  </div>
+	<% end %>
+
+	<div class="form-group">
+		<div class="control-label col-md-2">
+			<%= f.label :title %>
+			</div>
+			<div class="col-md-4">
+			<%= f.text_field :title, {:class => "form-control input-md", :maxlength => "140"} %>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<div class="control-label col-md-2">
+			<label> Select File</label>
+			</div>
+			<div class="col-md-4">
+			<%= f.file_field :image, {:class => "form-control input-md"} %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-12 text-center">
+		<%= f.submit "Save", {class: "btn btn-primary btn-md"} %>
+		</div>
+	</div>
+
+
+<% end %>

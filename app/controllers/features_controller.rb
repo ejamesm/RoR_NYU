@@ -2,7 +2,7 @@ class FeaturesController < ApplicationController
 	  def index
 	  	listingId = params[:listing_id]
 	  	@listing = Listing.find(listingId)
-	  	@features = @listing.features.all
+	  	@features = @listing.features
 	  end
 
 	  def new
