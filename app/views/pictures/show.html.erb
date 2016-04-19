@@ -1,0 +1,16 @@
+<h1 class="page-heading">View Picture
+	<small><%= @listing.title %></small>
+</h1>
+
+<p class="lead"><%= @picture.filename %> </p>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="thumbnail">
+			<img src= "/images/<%=@picture.filename%>" class="img-responsive" alt="picutre" />
+			<div class="caption">
+				<h3><%= @picture.title %></h3>
+			</div>
+		</div>
+	</div>
+</div>

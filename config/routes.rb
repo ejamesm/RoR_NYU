@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'public/index'
+  # get 'public/index'
 
   get 'accounts/login'
 
@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
   # get 'listings/index'
 
-  root 'listings#index'
+  get "public/:listing_id/details" => "public#details", as: :details
+
+  root 'public#index'
 
   resources :listings do
     resources :features

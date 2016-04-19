@@ -18,12 +18,14 @@
 						<td>Title</td>
 						<td></td>
 						<td></td>
+						<td></td>
 					</tr>
 				</thead>
 				<tbody>
 		      <% @pictures.each do |picture| %>
 		      	<tr>
-		      		<td><%= picture.title %></td>
+		      		<td><%= picture.title %></td>	
+							<td><%= link_to "Show", listing_picture_path(@listing, picture)%></td>
 							<td><%= link_to "Edit", edit_listing_picture_path(@listing, picture)%></td>
 							<td><%= link_to "Delete", [@listing, picture], method: :delete, data: {confirm: "Are you sure?"} %></td>
 		      	</tr>

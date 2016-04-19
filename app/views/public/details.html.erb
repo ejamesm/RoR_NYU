@@ -1,0 +1,23 @@
+<h1 class="page-heading">Listing Detail
+<small><%= @listing.title %></small>
+</h1>
+
+<div class="row">
+	<% picture = @listing.pictures.first %>
+	<% if picture != nil %>
+		<div class="col-md-8">
+			<img class="img-responsive" src="/images/<%= picture.filename %>" alt="picture" />
+		</div>
+	<% end %>
+
+	<div class="col-md-4">
+		<h3>Description</h3>
+			<p><%= @listing.description %></p>
+		<h3>Details</h3>
+		<ul>
+			<% @listing.features.each do |feature| %>
+			<li><%= feature.description %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
