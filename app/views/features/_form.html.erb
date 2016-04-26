@@ -1,0 +1,29 @@
+<%= form_for [@user, @listing, @feature], :html => {:multipart => true, :class => "form-horizontal"} do |f| %>
+	<% if @feature.errors.any? %>
+  <div class="form-group">
+  	<div id="error_explanation">
+  		<h3>
+  			<%= pluralize(@feature.errors.count, "error") %>
+  			prohibited this picture from being saved.
+  		</h3>
+  	</div>
+  </div>
+	<% end %>
+
+	<div class="form-group">
+		<div class="control-label col-md-2">
+			<%= f.label :description %>
+			</div>
+			<div class="col-md-4">
+			<%= f.text_field :description, {:class => "form-control input-md", :maxlength => "140"} %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-12 text-center">
+		<%= f.submit "Save", {class: "btn btn-primary btn-md"} %>
+		</div>
+	</div>
+
+
+<% end %>

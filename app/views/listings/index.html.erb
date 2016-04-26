@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<%=link_to 'New', new_listing_path, {class: "btn btn-primary btn-md"}%>
+		<%=link_to 'New', new_user_listing_path(@user), {class: "btn btn-primary btn-md"}%>
 	</div>
 </div>
 
@@ -30,10 +30,10 @@
 		      		<td><%= listing.title %></td>
 		      		<td><%= listing.description %></td>
 		      		<td><%= listing.price %></td>
-		      		<td><%= link_to "Features", listing_features_path(listing) %></td>
-		      		<td><%= link_to "Pictures", listing_pictures_path(listing) %></td>
-							<td><%= link_to "Edit", edit_listing_path(listing)%></td>
-							<td><%= link_to "Delete", listing, method: :delete, data: {confirm: "Are you sure?"} %></td>
+		      		<td><%= link_to "Features", user_listing_features_path(@user, listing) %></td>
+		      		<td><%= link_to "Pictures", user_listing_pictures_path(@user, listing) %></td>
+							<td><%= link_to "Edit", edit_user_listing_path(@user, listing)%></td>
+							<td><%= link_to "Delete", [@user, listing], method: :delete, data: {confirm: "Are you sure?"} %></td>
 		      	</tr>
 		      <% end %>
 	    	</tbody>

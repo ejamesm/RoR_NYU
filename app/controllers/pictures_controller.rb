@@ -1,10 +1,12 @@
 class PicturesController < ApplicationController
   def index
+    @user = User.find(params[:user_id])
   	@listing = Listing.find(params[:listing_id])
   	@pictures = @listing.pictures
   end
 
   def new
+    @user = User.find(params[:user_id])
   	@listing = Listing.find(params[:listing_id])
   	@picture = Picture.new
   end
@@ -30,7 +32,7 @@ class PicturesController < ApplicationController
     end
 
     if @picture.save
-      redirect_to listing_pictures_path
+      redirect_to controller: "pictures", action: "index"
     else
       render "new"
     end
@@ -43,6 +45,7 @@ class PicturesController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
   	@listing = Listing.find(params[:listing_id])
   	@picture = @listing.pictures.find(params[:id])
   end
@@ -74,8 +77,8 @@ class PicturesController < ApplicationController
 
     end
 
-    if @picture.update(pictures_params)
-      redirect_to listing_pictures_path(@listing)
+    if @picture.update(picture_params)
+      redirect_to controller: "pictures", action: "index"
     else
       render "edit"
     end 
@@ -88,13 +91,13 @@ class PicturesController < ApplicationController
 
     picture = listing.pictures.find(params[:id])
 
-    if picture.filename != nill
+    if picture.filename != nil
       filename = Rails.root.join("public", "images", picture.filename)
       File.delete(filename) if File.exist?(filename)
     end
 
     listing.pictures.destroy(picture)
-    redirect_to listing_pictures_path(listing)
+    redirect_to controller: "pictures", action: "index"
   end
 
   private

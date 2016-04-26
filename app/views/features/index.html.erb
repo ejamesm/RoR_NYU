@@ -3,7 +3,7 @@
 </h1>
 <div class="row">
 	<div class="col-md-12">
-		<%=link_to 'New', new_listing_feature_path, {class: "btn btn-primary btn-md"}%>
+		<%=link_to 'New', new_user_listing_feature_path, {class: "btn btn-primary btn-md"}%>
 	</div>
 </div>
 
@@ -24,8 +24,8 @@
 		      <% @features.each do |feature| %>
 		      	<tr>
 		      		<td><%= feature.description %></td>
-							<td><%= link_to "Edit", edit_listing_feature_path(@listing, feature)%></td>
-							<td><%= link_to "Delete", [@listing, feature], method: :delete, data: {confirm: "Are you sure?"} %></td>
+							<td><%= link_to "Edit", edit_user_listing_feature_path(@user, @listing, feature)%></td>
+							<td><%= link_to "Delete", [@user, @listing, feature], method: :delete, data: {confirm: "Are you sure?"} %></td>
 		      	</tr>
 		      <% end %>
 	    	</tbody>
